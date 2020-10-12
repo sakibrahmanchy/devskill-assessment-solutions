@@ -1,0 +1,78 @@
+<html>
+    <head>
+        <style>
+            table {
+                font-family: arial, sans-serif;
+                border-collapse: collapse;
+                width: 100%;
+            }
+            
+            .dark-background {
+                background-color: black;
+                color: white;
+            }
+
+            td, th {
+                border: 1px solid #dddddd;
+                text-align: left;
+                padding: 8px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="table" id="table"></div>
+
+        <script>
+            document.onload = loadTable(4, 10);
+
+            function loadTable(x, y) {
+                // Determine rows & cols
+                var cols = Math.min(x, y);
+                var rows = Math.max(x, y);
+                
+                // Append table html to the div
+                var tableHTML = generateTableHTML(rows, cols);
+                var table = document.querySelector("#table");
+                table.innerHTML = tableHTML;
+
+                // Add additional styling dynamically
+                var className = 'dark-background';
+
+                // Adding header styles
+                var tableHeaders = table.getElementsByTagName('thead');
+                tableHeaders[0].classList.add(className);
+                
+                // Adding footer styles
+                var tableRows = table.getElementsByTagName("tr");
+                var lastRow = tableRows[tableRows.length - 1];
+                lastRow.classList.add(className);
+            }
+
+            function generateTableHTML(rows, cols) {
+                // Initialize table
+                var tableHTML = "<table><thead>";
+                
+                // Generate Table Headers
+                for (var i = 0; i < cols; i++) {
+                    tableHTML += '<th>Random Table</th>';
+                }
+                tableHTML += '</thead><tbody>';
+                
+
+                // Generate Table Rows
+                for (var i = 0; i < rows; i++) {
+                    tableHTML += '<tr>';
+                    for (var j = 0; j < cols; j++) {
+                        tableHTML += '<td>9102</td>';
+                    }
+                    tableHTML += '</tr>';
+                }
+
+                // End Table
+                tableHTML += '</tbody></table>';
+
+                return tableHTML;
+            }
+        </script>
+    </body>
+</html>

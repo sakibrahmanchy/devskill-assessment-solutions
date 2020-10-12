@@ -1,0 +1,11 @@
+version: "3.1"
+services:
+    app:
+        build: 
+            context: .
+            dockerfile: dockerfile
+        container_name: "app"
+        ports: 
+            - 8900:80
+        volumes:
+            - .:/var/www/html
